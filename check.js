@@ -17,11 +17,18 @@ const dropCheckDigit = (str) => {
 const doubleNumber = (number) => {
   return typeof number === "number" ? number * 2 : "Please enter a number";
 };
+
+// throw error if input is not an array
+const checkIfIsArray = (input, name) => {
+  if (!Array.isArray(input)) {
+    throw new Error(`${name} requires an array`);
+  }
+  return true;
+};
+
 // map over an array, convert string elements to number, and double every number with an odd index number
 const convertAndDouble = (arr) => {
-  if (!Array.isArray(arr)) {
-    throw new Error("convertAndDouble requires an array");
-  }
+  checkIfIsArray(arr, "convertAndDouble");
 
   return arr.map((item, index) => {
     item = convertStringToNumber(item);
@@ -34,6 +41,8 @@ const convertAndDouble = (arr) => {
 
 // Sum all values of an array
 const sumArray = (arr) => {
+  checkIfIsArray(arr, "sumArray");
+
   let sum = 0;
   for (const item of arr) {
     sum += item;
@@ -58,5 +67,6 @@ module.exports = {
   getLastCharacterInString,
   dropCheckDigit,
   doubleNumber,
-  convertAndDouble
+  convertAndDouble,
+  sumArray
 };

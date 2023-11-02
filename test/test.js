@@ -69,6 +69,19 @@ describe("convertAndDouble", () => {
   });
 });
 
+describe("sumArray", () => {
+  it("should return the sum total of an array of numbers", () => {
+    const expected = 6;
+    const actual = check.sumArray([1, 2, 3]);
+    assert.strictEqual(actual, expected);
+  });
+  it("should throw an error when an array is not passed in", () => {
+    const expected = "sumArray requires an array";
+    const actual = () => check.sumArray("1");
+    assert.throws(actual, Error, expected);
+  });
+});
+
 describe("check function", () => {
   it("should return an error when nothing is passed in", () => {
     const expected = "Please provide input";
