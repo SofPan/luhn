@@ -29,6 +29,19 @@ describe("getLastCharacterInString function", () => {
   });
 });
 
+describe("dropCheckDigit function", () => {
+  it("should return all characters in a string except the last one", () => {
+    const expected = "hi ther";
+    const actual = check.dropCheckDigit("hi there");
+    assert.strictEqual(actual, expected);
+  });
+  it("should return an empty string when nothing is passed", () => {
+    const expected = "";
+    const actual = check.dropCheckDigit();
+    assert.strictEqual(actual, expected);
+  });
+});
+
 describe("check function", () => {
   it("should return an error when nothing is passed in", () => {
     const expected = "Please input a number";
