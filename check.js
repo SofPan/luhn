@@ -34,6 +34,9 @@ const convertAndDouble = (arr) => {
     item = convertStringToNumber(item);
     if (index % 2 !== 0) {
       item = doubleNumber(item);
+      if (item >= 10) {
+        item = item - 9;
+      }
     }
     return item;
   });
@@ -64,8 +67,7 @@ const check = (checkNum) => {
   const convertAndDoublePayload = convertAndDouble(payLoad);
   const sumPayload = sumArray(convertAndDoublePayload);
   const determineCheckDigit = calculateCheckDigit(sumPayload);
-  console.log(determineCheckDigit, checkNum.length);
-  return checkNum.length === determineCheckDigit;
+  return checkDigit === determineCheckDigit;
 };
 console.log(check("17893729974"));
 module.exports = {
