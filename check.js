@@ -32,13 +32,23 @@ const convertAndDouble = (arr) => {
   });
 };
 
+// Sum all values of an array
+const sumArray = (arr) => {
+  let sum = 0;
+  for (const item of arr) {
+    sum += item;
+  }
+  return sum;
+};
+
 const check = (checkNum) => {
   if (!checkNum) {
     throw new Error("Please provide input");
   }
-  const checkDigit = getLastCharacterInString(checkNum);
+  const checkDigit = convertStringToNumber(getLastCharacterInString(checkNum));
   const payLoad = dropCheckDigit(checkNum).split("");
   const convertAndDoublePayload = convertAndDouble(payLoad);
+  const sumPayload = sumArray(convertAndDoublePayload);
   // return checkDigit === calculateCheckDigit;
 };
 console.log(check("17893729974"));
