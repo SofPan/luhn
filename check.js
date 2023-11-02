@@ -15,8 +15,10 @@ const dropCheckDigit = (str) => {
 
 // double the number
 const doubleNumber = (number) => {
-  return number * 2;
+  return typeof number === "number" ? number * 2 : "Please enter a number";
 };
+
+
 
 const check = (checkNum) => {
   if (!checkNum) {
@@ -27,4 +29,10 @@ const check = (checkNum) => {
   // return checkDigit === calculateCheckDigit;
 };
 console.log(check("17893729974"));
-module.exports = { check, convertStringToNumber, getLastCharacterInString, dropCheckDigit };
+module.exports = {
+  check,
+  convertStringToNumber,
+  getLastCharacterInString,
+  dropCheckDigit,
+  doubleNumber
+};

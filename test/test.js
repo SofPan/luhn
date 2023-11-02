@@ -42,6 +42,20 @@ describe("dropCheckDigit function", () => {
   });
 });
 
+describe("doubleNumber", () => {
+  it("should return the result of a number multiplied by two", () => {
+    const expected = 4;
+    const actual = check.doubleNumber(2);
+    assert.strictEqual(actual, expected);
+  });
+
+  it("should return Please enter a number; when anything other than a number is passed in", () => {
+    const expected = "Please enter a number";
+    const actual = check.doubleNumber("hello there");
+    assert.strictEqual(actual, expected);
+  });
+});
+
 describe("check function", () => {
   it("should return an error when nothing is passed in", () => {
     const expected = "Please input a number";
