@@ -19,6 +19,10 @@ const doubleNumber = (number) => {
 };
 // map over an array, convert string elements to number, and double every number with an odd index number
 const convertAndDouble = (arr) => {
+  if (!Array.isArray(arr)) {
+    throw new Error("convertAndDouble requires an array");
+  }
+
   return arr.map((item, index) => {
     item = convertStringToNumber(item);
     if (index % 2 !== 0) {
@@ -30,7 +34,7 @@ const convertAndDouble = (arr) => {
 
 const check = (checkNum) => {
   if (!checkNum) {
-    throw new Error("Please input a number");
+    throw new Error("Please provide input");
   }
   const checkDigit = getLastCharacterInString(checkNum);
   const payLoad = dropCheckDigit(checkNum).split("");
@@ -43,5 +47,6 @@ module.exports = {
   convertStringToNumber,
   getLastCharacterInString,
   dropCheckDigit,
-  doubleNumber
+  doubleNumber,
+  convertAndDouble
 };

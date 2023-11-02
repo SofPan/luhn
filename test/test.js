@@ -56,9 +56,22 @@ describe("doubleNumber", () => {
   });
 });
 
+describe("convertAndDouble", () => {
+  it("should convert an array to strings to an array of numbers, and double every number with an odd index", () => {
+    const expected = [1, 4, 3, 8, 5];
+    const actual = check.convertAndDouble([1, 2, 3, 4, 5]);
+    assert.deepStrictEqual(actual, expected);
+  });
+  it("should throw an error when an array is not passed in", () => {
+    const expected = "convertAndDouble requires an array";
+    const actual = () => check.convertAndDouble("1");
+    assert.throws(actual, Error, expected);
+  });
+});
+
 describe("check function", () => {
   it("should return an error when nothing is passed in", () => {
-    const expected = "Please input a number";
+    const expected = "Please provide input";
     const actual = () => check.check();
     assert.throws(actual, Error, expected);
   });
