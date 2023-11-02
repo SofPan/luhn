@@ -50,6 +50,11 @@ const sumArray = (arr) => {
   return sum;
 };
 
+// luhn algorithm check digit calculation
+const calculateCheckDigit = (num) => {
+  return (10 - (num % 10));
+};
+
 const check = (checkNum) => {
   if (!checkNum) {
     throw new Error("Please provide input");
@@ -58,7 +63,9 @@ const check = (checkNum) => {
   const payLoad = dropCheckDigit(checkNum).split("");
   const convertAndDoublePayload = convertAndDouble(payLoad);
   const sumPayload = sumArray(convertAndDoublePayload);
-  // return checkDigit === calculateCheckDigit;
+  const determineCheckDigit = calculateCheckDigit(sumPayload);
+  console.log(determineCheckDigit, checkNum.length);
+  return checkNum.length === determineCheckDigit;
 };
 console.log(check("17893729974"));
 module.exports = {
