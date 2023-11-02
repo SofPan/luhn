@@ -17,15 +17,24 @@ const dropCheckDigit = (str) => {
 const doubleNumber = (number) => {
   return typeof number === "number" ? number * 2 : "Please enter a number";
 };
-
-
+// map over a string and apply callback function
+const convertAndDouble = (arr) => {
+  return arr.map((item, index) => {
+    item = convertStringToNumber(item);
+    if (index % 2 !== 0) {
+      item = doubleNumber(item);
+    }
+    return item;
+  });
+};
 
 const check = (checkNum) => {
   if (!checkNum) {
     throw new Error("Please input a number");
   }
   const checkDigit = getLastCharacterInString(checkNum);
-  const payLoad = dropCheckDigit(checkNum);
+  const payLoad = dropCheckDigit(checkNum).split("");
+  const converteAndDoublePayload = convertAndDouble(payLoad);
   // return checkDigit === calculateCheckDigit;
 };
 console.log(check("17893729974"));
