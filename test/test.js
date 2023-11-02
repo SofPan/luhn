@@ -95,7 +95,7 @@ describe("check function", () => {
   });
   it("should return false when the check digit does not match", () => {
     const expected = false;
-    const actual = check.check(17893729975);
+    const actual = check.check("17893729975");
     assert.strictEqual(actual, expected);
   });
 });
