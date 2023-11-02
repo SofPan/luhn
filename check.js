@@ -17,7 +17,7 @@ const dropCheckDigit = (str) => {
 const doubleNumber = (number) => {
   return typeof number === "number" ? number * 2 : "Please enter a number";
 };
-// map over a string and apply callback function
+// map over an array, convert string elements to number, and double every number with an odd index number
 const convertAndDouble = (arr) => {
   return arr.map((item, index) => {
     item = convertStringToNumber(item);
@@ -34,7 +34,7 @@ const check = (checkNum) => {
   }
   const checkDigit = getLastCharacterInString(checkNum);
   const payLoad = dropCheckDigit(checkNum).split("");
-  const converteAndDoublePayload = convertAndDouble(payLoad);
+  const convertAndDoublePayload = convertAndDouble(payLoad);
   // return checkDigit === calculateCheckDigit;
 };
 console.log(check("17893729974"));
